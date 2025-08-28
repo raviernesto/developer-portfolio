@@ -15,7 +15,7 @@ function ContactForm() {
     email: "",
     message: "",
   });
-  const contactEmail = process.env.EMAIL_ADDRESS || 'raviernesto123@gmail.com';
+  const contactEmail = 'raviernesto123@gmail.com';
 
   const checkRequired = () => {
     if (userInput.email && userInput.message && userInput.name) {
