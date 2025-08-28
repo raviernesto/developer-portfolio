@@ -3,16 +3,21 @@ import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 
 // Create and configure Nodemailer transporter
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  host: 'smtp.gmail.com',
-  port: 587,
-  secure: false, 
-  auth: {
-    user: process.env.EMAIL_ADDRESS,
-    pass: process.env.GMAIL_PASSKEY, 
-  },
-});
+let transporter;
+if (!process.env.EMAIL_ADDRESS || !process.env.GMAIL_PASSKEY) {
+  console.error('EMAIL_ADDRESS or GMAIL_PASSKEY environment variable is missing.');
+} else {
+  transporter = nodemailer.createTransport({
+    service: 'gmail',
+    host: 'smtp.gmail.com',
+    port: 587,
+    secure: false, 
+    auth: {
+      user: process.env.EMAIL_ADDRESS,
+      pass: process.env.GMAIL_PASSKEY, 
+    },
+  });
+}
 
 // Helper function to send a message via Telegram
 async function sendTelegramMessage(token, chat_id, message) {
@@ -59,6 +64,9 @@ async function sendEmail(payload, message) {
   };
   
   try {
+    if (!transporter) {
+      throw new Error('Email transporter not configured. Check EMAIL_ADDRESS and GMAIL_PASSKEY environment variables.');
+    }
     await transporter.sendMail(mailOptions);
     return true;
   } catch (error) {
