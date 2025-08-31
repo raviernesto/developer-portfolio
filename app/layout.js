@@ -15,6 +15,19 @@ applications. Proficient in Angular, TypeScript, and RESTful services, with a pr
 enterprise clients. Strong collaborator with experience in Agile teams, code reviews, and cross-functional API integration. Recognized
 for improving user satisfaction, performance, and system security. Seeking a challenging role in a forward-thinking organization to apply
 technical skills to mission-critical projects.`,
+  icons: {
+    // Default favicon (already present in app/favicon.ico)
+    icon: [
+  { url: "/favicon.ico" },
+  // Use profile.jpg as favicon (browsers will downscale as needed)
+  { url: "/profile.jpg", type: "image/jpeg", sizes: "32x32" },
+    ],
+    // Apple touch icon (uses an existing image; swap path for your own)
+    apple: [
+  { url: "/profile.jpg", sizes: "180x180" },
+    ],
+    shortcut: ["/favicon.ico"],
+  },
 };
 
 export default function RootLayout({ children }) {
