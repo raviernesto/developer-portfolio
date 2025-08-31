@@ -37,6 +37,11 @@ export default function RootLayout({ children }) {
         {process.env.NEXT_PUBLIC_GTM ? (
           <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM} />
         ) : null}
+  {/* Explicit favicon links to ensure browsers pick updated image */}
+  <link rel="icon" href="/profile.jpg?v=3" sizes="16x16" type="image/jpeg" />
+  <link rel="icon" href="/profile.jpg?v=3" sizes="32x32" type="image/jpeg" />
+  <link rel="icon" href="/profile.jpg?v=3" sizes="48x48" type="image/jpeg" />
+  <link rel="apple-touch-icon" href="/profile.jpg?v=3" sizes="180x180" />
       </head>
       <body className={inter.className}>
   <ToastProvider />
