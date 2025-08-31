@@ -1,6 +1,8 @@
-"use client"
+"use client";
+import dynamic from "next/dynamic";
 
-import Lottie from "lottie-react";
+// Load lottie-react only on the client to avoid SSR document/window access
+const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 
 const AnimationLottie = ({ animationPath, width }) => {
   const defaultOptions = {
