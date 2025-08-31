@@ -16,17 +16,17 @@ enterprise clients. Strong collaborator with experience in Agile teams, code rev
 for improving user satisfaction, performance, and system security. Seeking a challenging role in a forward-thinking organization to apply
 technical skills to mission-critical projects.`,
   icons: {
-    // Default favicon (already present in app/favicon.ico)
+    // Prioritize profile.jpg for the favicon across browsers
     icon: [
-  { url: "/favicon.ico" },
-  // Use profile.jpg as favicon (browsers will downscale as needed)
-  { url: "/profile.jpg", type: "image/jpeg", sizes: "32x32" },
+      { url: "/profile.jpg?v=2", type: "image/jpeg", sizes: "16x16" },
+      { url: "/profile.jpg?v=2", type: "image/jpeg", sizes: "32x32" },
+      { url: "/profile.jpg?v=2", type: "image/jpeg", sizes: "48x48" },
     ],
-    // Apple touch icon (uses an existing image; swap path for your own)
     apple: [
-  { url: "/profile.jpg", sizes: "180x180" },
+      { url: "/profile.jpg?v=2", sizes: "180x180" },
     ],
-    shortcut: ["/favicon.ico"],
+    // Shortcut icon also points to the new image (helps older browsers)
+    shortcut: ["/profile.jpg?v=2"],
   },
 };
 
