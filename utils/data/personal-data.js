@@ -18,5 +18,5 @@ technical skills to mission-critical projects.`,
   // leetcode: "https://leetcode.com/said3812/",
   devUsername: "said7388",
   resume:
-    "https://drive.google.com/file/d/1n7x8SBv52_tuMINIc-6oszAYNGSbbRya/view?usp=drive_link",
+    "https://drive.google.com/file/d/1DQaLXvyNrubqMM_LVJhHlYGKCL1T-FBj/view?usp=sharing",
 };
