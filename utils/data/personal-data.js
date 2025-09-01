@@ -1,7 +1,7 @@
 export const personalData = {
   name: "Ravi Shankar S",
   profile: "/profile.jpg",
-  designation: "Frontent Developer",
+  designation: "Frontend Developer",
   description: `Results-driven Angular developer with over 3 years of hands-on experience in building scalable and high-performance front-end
 applications. Proficient in Angular, TypeScript, and RESTful services, with a proven track record of delivering robust solutions for
 enterprise clients. Strong collaborator with experience in Agile teams, code reviews, and cross-functional API integration. Recognized
