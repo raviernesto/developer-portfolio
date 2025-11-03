@@ -1,20 +1,16 @@
 export const skillsData = [
-  'HTML',
-  'CSS',
-  'Javascript',
-  'Typescript',
-  'Angular',
-  'Bootstrap',
-  'React',
-  'RxJS',
-  'NgRx',
-  'Java',
-  'PrimeNG',
-  'NodeJS',
-  'Tailwind',
-  'Git',
-  'Firebase',
-  'MaterialUI',
+  // Core Frontend
+  'HTML', 'CSS', 'SCSS', 'Javascript', 'Typescript', 'Angular', 'React', 'Redux', 'NgRx', 'RxJS', 'Component-Based Architecture',
+  // UI Libraries & Styling
+  'PrimeNG', 'MaterialUI', 'Bootstrap', 'Tailwind', 'Responsive Web Design',
+  // Data & API
+  'RESTful API', 'Authentication', 'JSON',
+  // Tools & Platforms
+  'Git', 'GitHub', 'GitLab', 'NodeJS', 'Webpack', 'ViteJS', 'Google Cloud', 'Firebase', 'CI/CD', 'Tekton',
+  // Performance & Quality
+  'Lazy Loading', 'Code Splitting', 'Testing', 'Jasmine',
+  // Extras (icons may not exist; fallback gracefully)
+  'Postman', 'Swagger'
 ]
 
 // Choose your skills from below. Make sure it's in the same format and spelled correctly.

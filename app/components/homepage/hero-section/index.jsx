@@ -1,6 +1,8 @@
+"use client";
 // @flow strict
 
 import { personalData } from "@/utils/data/personal-data";
+import { skillsImage } from "@/utils/skill-image";
 import Image from "next/image";
 import Link from "next/link";
 import { BsGithub, BsLinkedin } from "react-icons/bs";
@@ -123,44 +125,70 @@ function HeroSection() {
               </div>
               {/* Skills Array of Objects */}
               {(() => {
-                const skills = [
+                const topSkillCategories = [
                   {
-                    category: 'Programming Languages',
-                    items: ['TypeScript', 'JavaScript', 'Java', 'C Programming'],
+                    label: 'Core Technical',
+                    items: [
+                      'Angular', 'React', 'TypeScript', 'JavaScript', 'NodeJS', 'Java', 'HTML', 'CSS', 'SCSS', 'NgRx', 'Redux', 'Responsive Web Design',
+                    ],
                   },
                   {
-                    category: 'Web Technologies',
-                    items: ['HTML', 'CSS', 'REST API Integration', 'Front-end Optimization'],
+                    label: 'API & Data Handling',
+                    items: ['RESTful API Integration', 'Authentication', 'JSON'],
                   },
                   {
-                    category: 'Concepts & Methodologies',
-                    items: ['Object-Oriented Programming (OOP)', 'Testing and Deployment'],
+                    label: 'Development Tools',
+                    items: ['Git', 'GitHub', 'GitLab', 'NPM', 'Yarn', 'Webpack', 'ViteJS', 'Postman', 'Swagger'],
                   },
                   {
-                    category: 'Frameworks & Libraries',
-                    items: ['Angular', 'Angular Material', 'PrimeNG', 'PrimeFlex', 'Bootstrap', 'RxJS', 'NgRx'],
+                    label: 'Performance Optimization',
+                    items: ['Lazy Loading', 'Code Splitting', 'Cross-Browser Compatibility'],
                   },
                   {
-                    category: 'Tools & Platforms',
-                    items: ['Node.js', 'Git', 'GitHub', 'ADFS', 'Firebase'],
+                    label: 'Testing & QA',
+                    items: ['Jasmine', 'Jest'],
+                  },
+                  {
+                    label: 'Cloud & Deployment',
+                    items: ['GCP', 'Firebase', 'Docker'],
+                  },
+                  {
+                    label: 'UI & Accessibility',
+                    items: ['PrimeNG', 'MaterialUI', 'Bootstrap', 'Tailwind', 'Pixel-Perfect UI Development', 'Reusable Component Libraries'],
                   },
                 ];
+
+                const normalize = (s) => s
+                  .replace(/\(.*?\)/g, '')
+                  .replace(/\bReact\.js\b/i, 'React')
+                  .replace(/\bNode\.js\b/i, 'NodeJS')
+                  .replace(/\bHTML5\b/i, 'HTML')
+                  .replace(/\bCSS3\b/i, 'CSS')
+                  .replace(/\bMaterial UI.*?/i, 'MaterialUI')
+                  .replace(/\bGoogle Cloud Platform.*?/i, 'GCP')
+                  .trim();
+
+                const hasIcon = (skill) => {
+                  const img = skillsImage(normalize(skill));
+                  return !!img;
+                };
+
                 return (
                   <div className="ml-4 lg:ml-8 mr-2">
-                    <span className="text-white">Skills:</span>
+                    <span className="text-white">skills:</span>
                     <span className="text-gray-400">{'{'}</span>
-                    {skills.map((group, idx) => (
-                      <div key={group.category} className="mt-1 ml-4 lg:ml-8">
-                        <span className="text-pink-400 font-semibold">{group.category}:</span>
+                    {topSkillCategories.map((group, idx) => (
+                      <div key={group.label} className="mt-1 ml-4 lg:ml-8">
+                        <span className="text-pink-400 font-semibold">{group.label}:</span>
                         <span className="text-gray-400">[</span>
                         {group.items.map((skill, i) => (
                           <span key={skill}>
-                            <span className="text-amber-300">{skill}</span>
+                            <span className="text-amber-300">{normalize(skill)}</span>
                             {i < group.items.length - 1 && <span className="text-gray-400">{', '}</span>}
                           </span>
                         ))}
                         <span className="text-gray-400">]</span>
-                        {idx < skills.length - 1 && <span className="text-gray-400">,</span>}
+                        {idx < topSkillCategories.length - 1 && <span className="text-gray-400">,</span>}
                       </div>
                     ))}
                     <span className="text-gray-400">{'}'}</span>
